@@ -9,9 +9,17 @@ import SwiftUI
 
 @main
 struct WethrApp: App {
-    var body: some Scene {
-        WindowGroup {
-            ContentView()
-        }
-    }
+	// MARK: PROPERTIES
+	@StateObject var locationManager = LocationManager()
+	
+	// MARK: BODY
+	var body: some Scene {
+		WindowGroup {
+			WeatherView()
+				.environmentObject(locationManager)
+				.onAppear {
+					locationManager.requestLocation()
+				}
+		}
+	}
 }
