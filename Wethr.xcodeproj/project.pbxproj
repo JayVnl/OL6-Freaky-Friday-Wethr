@@ -19,6 +19,7 @@
 		25A17C072800A284008EBF02 /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A17C062800A284008EBF02 /* ModelData.swift */; };
 		25A17C092800A31B008EBF02 /* WeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A17C082800A31B008EBF02 /* WeatherView.swift */; };
 		25A17C0B2800A439008EBF02 /* MockupData.json in Resources */ = {isa = PBXBuildFile; fileRef = 25A17C0A2800A439008EBF02 /* MockupData.json */; };
+		25A17C0D2800A5D7008EBF02 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A17C0C2800A5D7008EBF02 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		25A17C062800A284008EBF02 /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
 		25A17C082800A31B008EBF02 /* WeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherView.swift; sourceTree = "<group>"; };
 		25A17C0A2800A439008EBF02 /* MockupData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MockupData.json; sourceTree = "<group>"; };
+		25A17C0C2800A5D7008EBF02 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +78,7 @@
 				25A17BF628005F80008EBF02 /* Views */,
 				25A17BF728005FA4008EBF02 /* Components */,
 				25A17BE728005E5D008EBF02 /* WethrApp.swift */,
+				25A17C0C2800A5D7008EBF02 /* Extensions.swift */,
 				25A17BEB28005E5E008EBF02 /* Assets.xcassets */,
 				25A17BED28005E5E008EBF02 /* Preview Content */,
 			);
@@ -198,6 +201,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				25A17C072800A284008EBF02 /* ModelData.swift in Sources */,
+				25A17C0D2800A5D7008EBF02 /* Extensions.swift in Sources */,
 				25A17BFC28006476008EBF02 /* ContentView.swift in Sources */,
 				25A17C0528007A79008EBF02 /* WeatherResponse.swift in Sources */,
 				25A17BE828005E5D008EBF02 /* WethrApp.swift in Sources */,
