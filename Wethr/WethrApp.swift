@@ -15,7 +15,7 @@ struct WethrApp: App {
 	// MARK: BODY
 	var body: some Scene {
 		WindowGroup {
-			WeatherView()
+			ContentView()
 				.environmentObject(locationManager)
 				.onAppear {
 					locationManager.requestLocation()
