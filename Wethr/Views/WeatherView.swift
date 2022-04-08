@@ -10,6 +10,8 @@ import SwiftUI
 struct WeatherView: View {
 	// MARK: PROPERTIES
 	@EnvironmentObject var locationManager: LocationManager
+	var weatherManager = WeatherManager()
+	@State var weather: WeatherResponse?
 	
 	// MARK: BODY
 	var body: some View {
@@ -18,11 +20,23 @@ struct WeatherView: View {
 			VStack {
 				
 				if let location = locationManager.location {
-					Text("Your coordinates are: \(location.latitude), \(location.longitude)")
-				} else if locationManager.isLoading {
+					if let weather = weather {
+						Text("Weather data fetched!")
+						Text("\(weather.current.temp)")
+					} else {
 						ProgressView()
+							.task {
+								do {
+									weather = try await weatherManager.getWeatherData(lat: location.latitude, lng: location.longitude)
+								} catch {
+									print("Error getting weather: \(error)")
+								}
+							}
+					}
+				} else if locationManager.isLoading {
+					ProgressView()
 				}
-					
+				
 			} //: VSTACK
 			.frame(maxWidth: .infinity, maxHeight: .infinity)
 			
