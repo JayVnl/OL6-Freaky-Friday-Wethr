@@ -16,15 +16,16 @@ struct WeatherView: View {
 	var body: some View {
 		ZStack(alignment: .leading) {
 			
-			VStack {
-				Text("CLOUDY")
-					.bold()
-					.font(.system(size: 40))
-					.frame(maxWidth: .infinity)
-					.rotationEffect(Angle(degrees: 90), anchor: .topTrailing)
-			} //: VSTACK
-			.frame(maxWidth: .infinity, maxHeight: 270, alignment: .top)
-			
+			GeometryReader { gp in
+				HStack {
+					Text("CLOUDY")
+						.bold()
+						.font(.system(size: 40))
+						.rotationEffect(Angle(degrees: 90), anchor: .bottomLeading)
+						.offset(x: gp.size.width - (gp.size.width - 100))
+				}.frame(maxWidth: gp.size.width, alignment: .trailing)
+			}
+			.ignoresSafeArea()
 			
 			VStack(alignment: .center, spacing: 0) {
 				Text("\(Date().formatted(.dateTime.weekday(.wide))), \(Date().formatted(.dateTime.month(.wide).day()))")
@@ -38,7 +39,6 @@ struct WeatherView: View {
 				Image("CloudWithSun")
 					.resizable()
 					.aspectRatio(contentMode: .fit)
-//					.frame(width: 350)
 					.padding(32)
 				
 				Spacer()
@@ -68,7 +68,7 @@ struct WeatherView: View {
 					HStack(alignment: .top, spacing: 0) {
 						Text("\(weather.current.temp.roundDouble())")
 							.bold()
-						.font(.system(size: 80))
+							.font(.system(size: 80))
 						
 						Text("°")
 							.font(.system(size: 60))
@@ -88,10 +88,10 @@ struct WeatherView: View {
 					.padding(.bottom, 16)
 				
 				HStack(spacing: 12) {
-					HourlyWeatherCard()
-					HourlyWeatherCard()
-					HourlyWeatherCard()
-					HourlyWeatherCard()
+					let list = weather.hourly.dropFirst()
+					ForEach(list.prefix(4), id:\.dt) { weatherPerHour in
+						HourlyWeatherCard(hour: weatherPerHour.dt, temp: weatherPerHour.temp)
+					}
 				} //: HSTACK
 				.padding(.horizontal, 20)
 				

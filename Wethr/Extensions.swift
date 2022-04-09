@@ -40,3 +40,14 @@ extension Double {
 		}
 	}
 }
+
+extension Int {
+	func toHour() -> String {
+		let epocTime = TimeInterval(self)
+		let date = NSDate(timeIntervalSince1970: epocTime)
+		let dateFormatter = DateFormatter()
+		dateFormatter.dateFormat = "HH:mm"
+
+		return dateFormatter.string(from: date as Date)
+	}
+}

@@ -14,6 +14,7 @@ struct WeatherResponse: Decodable {
 	var hourly: [Weather]
 	
 	struct Weather: Decodable {
+		var dt: Int
 		var temp: Double
 		var wind_speed: Double
 		var wind_deg: Double

@@ -29,7 +29,7 @@
 	"hourly": [
 		{
 			"dt": 1649430000,
-			"temp": 8.38,
+			"temp": 20.38,
 			"feels_like": 6.52,
 			"pressure": 998,
 			"humidity": 64,
@@ -52,7 +52,7 @@
 		},
 		{
 			"dt": 1649433600,
-			"temp": 8.55,
+			"temp": 20.55,
 			"feels_like": 7.32,
 			"pressure": 998,
 			"humidity": 63,
@@ -78,7 +78,7 @@
 		},
 		{
 			"dt": 1649437200,
-			"temp": 8.35,
+			"temp": 20.35,
 			"feels_like": 6.94,
 			"pressure": 998,
 			"humidity": 64,
@@ -101,7 +101,7 @@
 		},
 		{
 			"dt": 1649440800,
-			"temp": 7.8,
+			"temp": 19.8,
 			"feels_like": 6.04,
 			"pressure": 998,
 			"humidity": 66,
@@ -124,7 +124,7 @@
 		},
 		{
 			"dt": 1649444400,
-			"temp": 7.07,
+			"temp": 19.07,
 			"feels_like": 4.43,
 			"pressure": 999,
 			"humidity": 69,
@@ -147,7 +147,7 @@
 		},
 		{
 			"dt": 1649448000,
-			"temp": 6.28,
+			"temp": 18.28,
 			"feels_like": 2.97,
 			"pressure": 999,
 			"humidity": 70,
@@ -170,7 +170,7 @@
 		},
 		{
 			"dt": 1649451600,
-			"temp": 5.24,
+			"temp": 17.24,
 			"feels_like": 1.99,
 			"pressure": 1001,
 			"humidity": 73,
@@ -193,7 +193,7 @@
 		},
 		{
 			"dt": 1649455200,
-			"temp": 4.73,
+			"temp": 16.73,
 			"feels_like": 1.56,
 			"pressure": 1001,
 			"humidity": 77,
@@ -216,7 +216,7 @@
 		},
 		{
 			"dt": 1649458800,
-			"temp": 3.87,
+			"temp": 15.87,
 			"feels_like": 0.56,
 			"pressure": 1002,
 			"humidity": 82,
