@@ -9,6 +9,7 @@ import SwiftUI
 
 struct WeatherView: View {
 	// MARK: PROPERTIES
+	var location: String?
 	var weather: WeatherResponse
 	
 	// MARK: BODY
@@ -40,7 +41,7 @@ struct WeatherView: View {
 				
 				Spacer()
 				
-				Text("Eindhoven")
+				Text("\(location ?? "")")
 					.bold()
 					.font(.system(size: 50))
 					.frame(maxWidth: .infinity, alignment: .leading)
@@ -77,7 +78,7 @@ struct WeatherView: View {
 // MARK: PREVIEW
 struct WeatherView_Previews: PreviewProvider {
 	static var previews: some View {
-		WeatherView(weather: weatherMockupData)
+		WeatherView(location: "Eindhoven", weather: weatherMockupData)
 			.previewDevice("iPhone 11")
 	}
 }

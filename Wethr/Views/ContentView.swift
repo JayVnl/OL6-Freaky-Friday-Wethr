@@ -19,14 +19,14 @@ struct ContentView: View {
 			
 			VStack {
 				
-				if let location = locationManager.location {
+				if let coords = locationManager.coords {
 					if let weather = weather {
-						WeatherView(weather: weather)
+						WeatherView(location: locationManager.location?.locality, weather: weather)
 					} else {
 						ProgressView()
 							.task {
 								do {
-									weather = try await weatherManager.getWeatherData(lat: location.latitude, lng: location.longitude)
+									weather = try await weatherManager.getWeatherData(lat: coords.latitude, lng: coords.longitude)
 								} catch {
 									print("Error getting weather: \(error)")
 								}

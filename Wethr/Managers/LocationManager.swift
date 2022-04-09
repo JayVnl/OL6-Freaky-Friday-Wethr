@@ -11,7 +11,8 @@ import CoreLocation
 class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
 	let manager = CLLocationManager()
 	
-	@Published var location: CLLocationCoordinate2D?
+	@Published var coords: CLLocationCoordinate2D?
+	@Published var location: CLPlacemark?
 	@Published var isLoading = false
 	
 	override init() {
@@ -31,7 +32,24 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
 	}
 	
 	func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-		location = locations.first?.coordinate
+		coords = locations.first?.coordinate
+		
+		if let coords = coords {
+			let locationObj = CLLocation(latitude: coords.latitude, longitude: coords.longitude)
+			
+			let geocoder = CLGeocoder()
+			geocoder.reverseGeocodeLocation(locationObj) { placemarks, error in
+				guard error == nil else {
+					print("=====> Error \(error!.localizedDescription)")
+					return
+				}
+				guard let placemark = placemarks?.first else {
+					print("=====> Error placemark is nil")
+					return
+				}
+				self.location = placemark
+			}
+		}
 		isLoading = false
 	}
 	
