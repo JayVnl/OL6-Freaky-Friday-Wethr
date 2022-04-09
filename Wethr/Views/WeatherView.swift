@@ -26,18 +26,20 @@ struct WeatherView: View {
 			.frame(maxWidth: .infinity, maxHeight: 270, alignment: .top)
 			
 			
-			VStack(alignment: .center) {
+			VStack(alignment: .center, spacing: 0) {
 				Text("\(Date().formatted(.dateTime.weekday(.wide))), \(Date().formatted(.dateTime.month(.wide).day()))")
 					.bold()
 					.font(.system(size: 24))
 					.frame(maxWidth: .infinity, alignment: .leading)
+					.padding(.leading, 20)
 				
 				Spacer()
 				
 				Image("CloudWithSun")
 					.resizable()
 					.aspectRatio(contentMode: .fit)
-					.frame(width: 350)
+//					.frame(width: 350)
+					.padding(32)
 				
 				Spacer()
 				
@@ -45,31 +47,58 @@ struct WeatherView: View {
 					.bold()
 					.font(.system(size: 50))
 					.frame(maxWidth: .infinity, alignment: .leading)
-				
-				Spacer()
-					.frame(height: 20)
+					.padding(.leading, 20)
 				
 				Rectangle()
 					.foregroundColor(.white)
-					.frame(maxWidth: .infinity, maxHeight: 5)
-				
-				Spacer()
-					.frame(height: 20)
+					.frame(maxWidth: .infinity, maxHeight: 3)
+					.padding(.leading, 20)
+					.padding(.top, 20)
+					.padding(.bottom, 16)
 				
 				HStack {
-					VStack {
-						
-					}
+					
+					VStack(alignment: .leading, spacing: 8) {
+						IconWithDetails(icon: "wind", value: "13 km/h")
+						IconWithDetails(icon: "safari", value: "NW")
+					} //: VSTACK
+					
 					Spacer()
-					Text("\(weather.current.temp.roundDouble())")
+					
+					HStack(alignment: .top, spacing: 0) {
+						Text("\(weather.current.temp.roundDouble())")
+							.bold()
+						.font(.system(size: 80))
+						
+						Text("°")
+							.font(.system(size: 60))
+							.padding(.top, 2)
+					} //: HSTACK
+					
 				} //: HSTACK
 				.frame(maxWidth: .infinity)
+				.padding(.horizontal, 20)
+				
+				Text("TODAY")
+					.bold()
+					.font(.system(size: 24))
+					.frame(maxWidth: .infinity, alignment: .leading)
+					.padding(.leading, 20)
+					.padding(.top, 24)
+					.padding(.bottom, 16)
+				
+				HStack(spacing: 12) {
+					HourlyWeatherCard()
+					HourlyWeatherCard()
+					HourlyWeatherCard()
+					HourlyWeatherCard()
+				} //: HSTACK
+				.padding(.horizontal, 20)
 				
 			} //: VSTACK
 			.frame(maxWidth: .infinity)
 			
 		} //: ZSTACK
-		.padding(.horizontal, 20)
 		.background(Color(hue: 0.587, saturation: 0.916, brightness: 0.779))
 		.preferredColorScheme(.dark)
 	}
