@@ -59,8 +59,8 @@ struct WeatherView: View {
 				HStack {
 					
 					VStack(alignment: .leading, spacing: 8) {
-						IconWithDetails(icon: "wind", value: "13 km/h")
-						IconWithDetails(icon: "safari", value: "NW")
+						IconWithDetails(icon: "wind", value: "\(weather.current.wind_speed.convertToKmPerHour()) km/h")
+						IconWithDetails(icon: "safari", value: "\(weather.current.wind_deg.convertToCompassDirection())")
 					} //: VSTACK
 					
 					Spacer()
