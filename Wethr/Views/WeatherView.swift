@@ -11,6 +11,7 @@ struct WeatherView: View {
 	// MARK: PROPERTIES
 	var location: String?
 	var weather: WeatherResponse
+	@State var currentTemp: Int = 0
 	
 	// MARK: BODY
 	var body: some View {
@@ -35,10 +36,7 @@ struct WeatherView: View {
 				
 				Spacer()
 				
-				Image("CloudWithSun")
-					.resizable()
-					.aspectRatio(contentMode: .fit)
-					.padding(32)
+				WeatherImage(iconId: weather.current.weather[0].icon)
 				
 				Spacer()
 				
@@ -64,7 +62,8 @@ struct WeatherView: View {
 					Spacer()
 					
 					HStack(alignment: .top, spacing: 0) {
-						Text("\(weather.current.temp.roundDouble())")
+						
+						Text("\(currentTemp)")
 							.font(.custom(FontNameManager.Montserrat.semibold, size: 80))
 						
 						Text("°")
@@ -97,6 +96,46 @@ struct WeatherView: View {
 		} //: ZSTACK
 		.background(LinearGradient(gradient: Gradient(colors: [Color("LightBlue"), Color("DarkBlue")]), startPoint: .top, endPoint: .bottom))
 		.preferredColorScheme(.dark)
+		.onAppear {
+			countCurrentTemp(countTo: Int(weather.current.temp.roundDouble()) ?? 0)
+		}
+	}
+	
+	func countCurrentTemp(countTo: Int) {
+		withAnimation {
+			if (countTo >= 0) {
+				let animationDuration = countTo * 70
+				let steps = min(abs(countTo), 100)
+				let stepDuration = (animationDuration / steps)
+				
+				self.currentTemp += countTo % steps
+				
+				(0..<steps).forEach { step in
+					let updateTimeInterval = DispatchTimeInterval.milliseconds(step * stepDuration)
+					let deadline = DispatchTime.now() + updateTimeInterval
+					
+					DispatchQueue.main.asyncAfter(deadline: deadline) {
+						self.currentTemp += Int(countTo / steps)
+					}
+				}
+			} else {
+				let positiveCountTo = countTo * -1
+				let animationDuration = positiveCountTo * 70
+				let steps = min(abs(positiveCountTo), 100)
+				let stepDuration = (animationDuration / steps)
+				
+				self.currentTemp -= positiveCountTo % steps
+				
+				(0..<steps).forEach { step in
+					let updateTimeInterval = DispatchTimeInterval.milliseconds(step * stepDuration)
+					let deadline = DispatchTime.now() + updateTimeInterval
+					
+					DispatchQueue.main.asyncAfter(deadline: deadline) {
+						self.currentTemp -= Int(positiveCountTo / steps)
+					}
+				}
+			}
+		}
 	}
 }
 

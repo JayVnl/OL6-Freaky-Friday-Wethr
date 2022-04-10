@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2564F6E728016BBD00F91D9F /* IconWithDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2564F6E628016BBD00F91D9F /* IconWithDetails.swift */; };
 		2564F6E92801790F00F91D9F /* HourlyWeatherCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2564F6E82801790F00F91D9F /* HourlyWeatherCard.swift */; };
+		2583994A28030C3600224D7B /* WeatherImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2583994928030C3600224D7B /* WeatherImage.swift */; };
 		2587E61528020EE5004168CB /* Montserrat-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2587E60C28020EE4004168CB /* Montserrat-Light.ttf */; };
 		2587E61628020EE5004168CB /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2587E60D28020EE4004168CB /* Montserrat-Regular.ttf */; };
 		2587E61728020EE5004168CB /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2587E60E28020EE5004168CB /* Montserrat-Medium.ttf */; };
@@ -37,6 +38,7 @@
 /* Begin PBXFileReference section */
 		2564F6E628016BBD00F91D9F /* IconWithDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconWithDetails.swift; sourceTree = "<group>"; };
 		2564F6E82801790F00F91D9F /* HourlyWeatherCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyWeatherCard.swift; sourceTree = "<group>"; };
+		2583994928030C3600224D7B /* WeatherImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherImage.swift; sourceTree = "<group>"; };
 		2587E60C28020EE4004168CB /* Montserrat-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Light.ttf"; sourceTree = "<group>"; };
 		2587E60D28020EE4004168CB /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
 		2587E60E28020EE5004168CB /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.ttf"; sourceTree = "<group>"; };
@@ -118,7 +120,6 @@
 		25A17BE628005E5D008EBF02 /* Wethr */ = {
 			isa = PBXGroup;
 			children = (
-				2587E60A28020D43004168CB /* Fonts */,
 				25A17BFF280075BB008EBF02 /* ApiKeys.plist */,
 				25A17C0128007692008EBF02 /* ApiKeys.swift */,
 				25A17BF528005F5A008EBF02 /* Info.plist */,
@@ -126,6 +127,7 @@
 				25A17BF828005FB0008EBF02 /* Managers */,
 				25A17BF628005F80008EBF02 /* Views */,
 				25A17BF728005FA4008EBF02 /* Components */,
+				2587E60A28020D43004168CB /* Fonts */,
 				25A17BE728005E5D008EBF02 /* WethrApp.swift */,
 				25A17C0C2800A5D7008EBF02 /* Extensions.swift */,
 				25A17BEB28005E5E008EBF02 /* Assets.xcassets */,
@@ -158,6 +160,7 @@
 			children = (
 				2564F6E628016BBD00F91D9F /* IconWithDetails.swift */,
 				2564F6E82801790F00F91D9F /* HourlyWeatherCard.swift */,
+				2583994928030C3600224D7B /* WeatherImage.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -269,6 +272,7 @@
 				2564F6E92801790F00F91D9F /* HourlyWeatherCard.swift in Sources */,
 				25A17BE828005E5D008EBF02 /* WethrApp.swift in Sources */,
 				25A17BFE28007263008EBF02 /* WeatherManager.swift in Sources */,
+				2583994A28030C3600224D7B /* WeatherImage.swift in Sources */,
 				25A17BFA280060C6008EBF02 /* LocationManager.swift in Sources */,
 				25A17C0228007692008EBF02 /* ApiKeys.swift in Sources */,
 				25BCA89A2802C22700C5411A /* FontManager.swift in Sources */,
