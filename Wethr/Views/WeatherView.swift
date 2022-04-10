@@ -104,34 +104,24 @@ struct WeatherView: View {
 	func countCurrentTemp(countTo: Int) {
 		withAnimation {
 			if (countTo >= 0) {
-				let animationDuration = countTo * 70
-				let steps = min(abs(countTo), 100)
-				let stepDuration = (animationDuration / steps)
-				
-				self.currentTemp += countTo % steps
-				
-				(0..<steps).forEach { step in
-					let updateTimeInterval = DispatchTimeInterval.milliseconds(step * stepDuration)
+				(0..<countTo).forEach { step in
+					let updateTimeInterval = DispatchTimeInterval.milliseconds(step * 75)
 					let deadline = DispatchTime.now() + updateTimeInterval
 					
 					DispatchQueue.main.asyncAfter(deadline: deadline) {
-						self.currentTemp += Int(countTo / steps)
+						print(step)
+						self.currentTemp += 1
 					}
 				}
 			} else {
-				let positiveCountTo = countTo * -1
-				let animationDuration = positiveCountTo * 70
-				let steps = min(abs(positiveCountTo), 100)
-				let stepDuration = (animationDuration / steps)
+				let total = countTo * -1
 				
-				self.currentTemp -= positiveCountTo % steps
-				
-				(0..<steps).forEach { step in
-					let updateTimeInterval = DispatchTimeInterval.milliseconds(step * stepDuration)
+				(0..<total).forEach { step in
+					let updateTimeInterval = DispatchTimeInterval.milliseconds(step * 75)
 					let deadline = DispatchTime.now() + updateTimeInterval
 					
 					DispatchQueue.main.asyncAfter(deadline: deadline) {
-						self.currentTemp -= Int(positiveCountTo / steps)
+						self.currentTemp -= 1
 					}
 				}
 			}
