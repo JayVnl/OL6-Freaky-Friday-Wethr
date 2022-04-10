@@ -14,23 +14,27 @@ struct HourlyWeatherCard: View {
 	
 	// MARK: BODY
 	var body: some View {
-		VStack {
+		VStack(spacing: 0) {
 			
 			Image("CloudWithSun")
 				.resizable()
 				.scaledToFit()
+				.padding(.bottom, 2)
 			
 			HStack(alignment: .top, spacing: 0) {
 				Text("\(temp.roundDouble())")
-					.bold()
-				.font(.system(size: 22))
+					.font(.custom(FontNameManager.Montserrat.semibold, size: 30))
+					.padding(.leading, 2)
 				
 				Text("°")
-					.font(.system(size: 18))
+					.font(.custom(FontNameManager.Montserrat.semibold, size: 20))
 					.padding(.top, 2)
 			} //: HSTACK
+			.padding(.vertical, 2)
 			
 			Text("\(hour.toHour())")
+				.font(.custom(FontNameManager.Montserrat.medium, size: 18))
+				.opacity(0.7)
 		} //: VSTACK
 		.padding(12)
 		.overlay(

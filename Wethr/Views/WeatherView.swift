@@ -18,19 +18,18 @@ struct WeatherView: View {
 			
 			GeometryReader { gp in
 				HStack {
-					Text("CLOUDY")
-						.bold()
-						.font(.system(size: 40))
+					Text("\(weather.current.weather[0].main)")
+						.font(.custom(FontNameManager.Montserrat.bold, size: 36))
+						.textCase(.uppercase)
 						.rotationEffect(Angle(degrees: 90), anchor: .bottomLeading)
-						.offset(x: gp.size.width - (gp.size.width - 100))
+						.offset(x: gp.size.width - (gp.size.width - 108), y: 4)
 				}.frame(maxWidth: gp.size.width, alignment: .trailing)
 			}
 			.ignoresSafeArea()
 			
 			VStack(alignment: .center, spacing: 0) {
 				Text("\(Date().formatted(.dateTime.weekday(.wide))), \(Date().formatted(.dateTime.month(.wide).day()))")
-					.bold()
-					.font(.system(size: 24))
+					.font(.custom(FontNameManager.Montserrat.bold, size: 22))
 					.frame(maxWidth: .infinity, alignment: .leading)
 					.padding(.leading, 20)
 				
@@ -44,8 +43,7 @@ struct WeatherView: View {
 				Spacer()
 				
 				Text("\(location ?? "")")
-					.bold()
-					.font(.system(size: 50))
+					.font(.custom(FontNameManager.Montserrat.semibold, size: 44))
 					.frame(maxWidth: .infinity, alignment: .leading)
 					.padding(.leading, 20)
 				
@@ -67,12 +65,11 @@ struct WeatherView: View {
 					
 					HStack(alignment: .top, spacing: 0) {
 						Text("\(weather.current.temp.roundDouble())")
-							.bold()
-							.font(.system(size: 80))
+							.font(.custom(FontNameManager.Montserrat.semibold, size: 80))
 						
 						Text("°")
-							.font(.system(size: 60))
-							.padding(.top, 2)
+							.font(.custom(FontNameManager.Montserrat.semibold, size: 50))
+							.padding(.top, 8)
 					} //: HSTACK
 					
 				} //: HSTACK
@@ -80,8 +77,7 @@ struct WeatherView: View {
 				.padding(.horizontal, 20)
 				
 				Text("TODAY")
-					.bold()
-					.font(.system(size: 24))
+					.font(.custom(FontNameManager.Montserrat.semibold, size: 26))
 					.frame(maxWidth: .infinity, alignment: .leading)
 					.padding(.leading, 20)
 					.padding(.top, 24)
@@ -99,7 +95,7 @@ struct WeatherView: View {
 			.frame(maxWidth: .infinity)
 			
 		} //: ZSTACK
-		.background(Color(hue: 0.587, saturation: 0.916, brightness: 0.779))
+		.background(LinearGradient(gradient: Gradient(colors: [Color("LightBlue"), Color("DarkBlue")]), startPoint: .top, endPoint: .bottom))
 		.preferredColorScheme(.dark)
 	}
 }

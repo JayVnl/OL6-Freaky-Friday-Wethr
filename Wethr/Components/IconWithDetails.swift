@@ -19,8 +19,7 @@ struct IconWithDetails: View {
 				.font(.system(size: 24))
 				.frame(width: 32)
 			Text("\(value)")
-				.font(.system(size: 24))
-				.bold()
+				.font(.custom(FontNameManager.Montserrat.medium, size: 28))
 		}
 	}
 }
